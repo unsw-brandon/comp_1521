@@ -1,0 +1,1 @@
+/web/cs1521/24T1/activities/different10/files.ln/different10.c
