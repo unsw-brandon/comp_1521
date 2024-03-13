@@ -1,3 +1,5 @@
+# Tested by [Brandon Chikandiwa (z5495844) on 13/03/2023]
+
 # Reads numbers into an array until a negative number is entered
 # then print the numbers in reverse order.
 
@@ -25,9 +27,29 @@ read_loop__body:
 
 	addi	$t0, $t0, 1			#   i++;
 	j	read_loop__cond			# }
-read_loop__end:
 
-	# TODO: add your code here!
+read_loop__end:
+	bgt $t0, $zero, loop_2;
+	j end
+
+loop_2:
+	addi $t0, $t0, -1
+
+	mul	$t1, $t0, 4			#   &numbers[i] = numbers + 4 * i
+	lw	$t2, numbers($t1)
+
+	li $v0, 1
+	move $a0, $t2
+	syscall
+
+	li $v0, 11
+	li $a0, '\n'
+	syscall
+
+	bgt $t0, $zero, loop_2;
+	j end
+
+end:
 
 	li	$v0, 0
 	jr	$ra				# return 0;
