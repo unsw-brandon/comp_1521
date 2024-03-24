@@ -30,7 +30,22 @@ int main(int argc, char *argv[]) {
 // storage for string is allocated using malloc
 char *sixteen_out(int16_t value) {
 
-    // PUT YOUR CODE HERE
+    char *out = malloc(sizeof(char) * (N_BITS + 1));
 
+
+    out[N_BITS] = '\0';
+
+    for (int i = N_BITS - 1; i >= 0; i--) {
+
+        if (value & 1) {
+            out[i] = '1';
+        } else {
+            out[i] = '0';
+        }
+        
+        value  = value >> 1; 
+    }
+
+    return out;
 }
 

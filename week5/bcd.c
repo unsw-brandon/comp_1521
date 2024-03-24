@@ -21,9 +21,10 @@ int main(int argc, char *argv[]) {
 // given a  BCD encoded value between 0 .. 99
 // return corresponding integer
 int bcd(int bcd_value) {
-
-    // PUT YOUR CODE HERE
-
-    return 0;
+    int32_t my_bcd = (int32_t) bcd_value;
+    int my_decimal = 0;
+    my_decimal +=  my_bcd & 0xFF;
+    my_decimal += 10 * (my_bcd & 0xFF00) >> 8;
+    return my_decimal;
 }
 

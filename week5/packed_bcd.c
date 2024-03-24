@@ -23,8 +23,13 @@ int main(int argc, char *argv[]) {
 // given a packed BCD encoded value between 0 .. 99999999
 // return the corresponding integer
 uint32_t packed_bcd(uint32_t packed_bcd_value) {
+    uint32_t my_decimal = 0;
+    int base = 1; 
 
-    // PUT YOUR CODE HERE
+    for (int i = 0; i < 8; i++) { 
+        my_decimal += base * ((packed_bcd_value >> (4 * i)) & 0x000F); 
+        base *= 10; 
+    }
 
-    return 0;
+    return my_decimal;
 }
