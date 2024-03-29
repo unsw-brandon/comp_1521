@@ -33,9 +33,9 @@ main:
 
 	# TODO: modify the following to print the character in the nth-position
 
-	li	$v0, 11			# syscall 11: print_char
-	li	$a0, '?'		#
-	syscall				# putchar('?');
+	li	$v0, 11			
+	lb	$a0, line($t0)		
+	syscall				
 
 	# You shouldn't need to modify anything below here.
 
@@ -60,4 +60,3 @@ result_str:
 # Line of input stored here
 line:
 	.space	LINE_LEN
-
